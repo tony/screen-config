@@ -1,0 +1,36 @@
+# Tab bar
+
+#hardstatus off
+#hardstatus alwayslastline
+#hardstatus string "%{+b wk} %-w%{+b wk} %n %t %{-}%+w %41=%H @ %l %-= %= %D,%c:%s "
+#hardstatus string '%{= dd}%{= Wr} %D %d %M %c > %{= Ww}%-w%{= Wk}%n %t%{= Ww}%+w %{= dd} %='
+
+# backticks to display information in the statusbar
+# git clone https://github.com/thewtex/screen-cpu-mem.git
+# cmake . && make && sudo make install
+backtick 1 0 0 /usr/local/bin/screen-mem-usage
+backtick 2 0 0 /usr/local/bin/screen-cpu-usage
+
+hardstatus alwayslastline '%{= wk} %-w%{+b wk}%50> %n* %t %{= wk}%+w%< %{= wk}%-=%D %m/%d/%y | %C:%s %A | %1`%{-} %2`%{-}'
+hardstatus off
+
+# To clear the screen after closing some programs
+altscreen on
+
+# COLORS! and some useful terminfo
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I" 
+
+# erase background with current bg color 
+#defbce "on"
+
+# Do not show startup message
+startup_message off
+
+defutf8 on
+utf8 on
+
